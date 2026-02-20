@@ -1,0 +1,24 @@
+[2026-02-20 00:35:46,716] 9 root - INFO - Matrix Script Started
+[2026-02-20 00:35:46,716] 7 root - INFO - ETL Process Started
+[2026-02-20 00:35:46,716] 20 root - INFO - ETL Config Initialized with paths: Amazon - DATA/Amazon Sale Report.csv, International - DATA/International Sale Report.csv
+[2026-02-20 00:35:46,716] 34 root - INFO - Loading data from paths: Amazon - DATA/Amazon Sale Report.csv, International - DATA/International Sale Report.csv
+[2026-02-20 00:35:47,565] 42 root - INFO - Stripping column spaces for both datasets
+[2026-02-20 00:35:47,565] 47 root - INFO - Renaming columns for Amazon dataset
+[2026-02-20 00:35:47,608] 61 root - INFO - Renaming columns for International dataset
+[2026-02-20 00:35:47,614] 75 root - INFO - Cleaning data: Converting data types and standardizing SKU format
+[2026-02-20 00:35:47,799] 89 root - INFO - Appending datasets to create master_sales
+[2026-02-20 00:35:47,804] 93 root - INFO - Removing duplicates from master_sales
+[2026-02-20 00:35:47,856] 97 root - INFO - Saving master_sales to path: DATA/master_sales.csv
+[2026-02-20 00:35:48,179] 110 root - INFO - Loading master_sales from path: DATA/master_sales.csv
+[2026-02-20 00:35:48,259] 113 root - INFO - Cleaning master_sales: Handling missing values and extracting date components
+[2026-02-20 00:35:48,305] 125 root - INFO - Extracting year, month, and day from order_date
+[2026-02-20 00:35:48,704] 141 root - INFO - Saving cleaned master_sales to path: DATA/cleaned_master_sales.csv
+[2026-02-20 00:35:49,032] 154 root - INFO - ETL Process Completed Successfully
+[2026-02-20 00:35:49,032] 21 root - INFO - Matrix Config Initialized with paths: Cleaned Data - DATA/cleaned_master_sales.csv, Matrix Output - DATA/correlation_matrix.png
+[2026-02-20 00:35:49,032] 34 root - INFO - Loading cleaned data from path: DATA/cleaned_master_sales.csv
+[2026-02-20 00:35:49,117] 37 root - INFO - Generating correlation matrix
+[2026-02-20 00:35:49,249] 54 root - INFO - Saving revenue by source plot to KPI/Revenue_Metrics/revenue_by_source.png
+[2026-02-20 00:35:49,292] 58 root - INFO - Saving KPI metrics to KPI/Revenue_Metrics.csv
+[2026-02-20 00:35:49,309] 74 root - INFO - Generating monthly analysis
+[2026-02-20 00:35:49,309] 77 root - INFO - Saving monthly analysis plots to KPI/Monthly_Analysis/
+[2026-02-20 00:36:10,976] 115 root - INFO - Correlation matrix generation completed successfully

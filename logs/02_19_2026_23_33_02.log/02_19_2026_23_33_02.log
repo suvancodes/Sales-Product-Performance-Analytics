@@ -1,0 +1,20 @@
+[2026-02-19 23:33:09,236] 7 root - INFO - Matrix Script Started
+[2026-02-19 23:33:09,236] 7 root - INFO - ETL Process Started
+[2026-02-19 23:33:09,236] 20 root - INFO - ETL Config Initialized with paths: Amazon - DATA/Amazon Sale Report.csv, International - DATA/International Sale Report.csv
+[2026-02-19 23:33:09,236] 34 root - INFO - Loading data from paths: Amazon - DATA/Amazon Sale Report.csv, International - DATA/International Sale Report.csv
+[2026-02-19 23:33:09,986] 42 root - INFO - Stripping column spaces for both datasets
+[2026-02-19 23:33:09,986] 47 root - INFO - Renaming columns for Amazon dataset
+[2026-02-19 23:33:10,026] 61 root - INFO - Renaming columns for International dataset
+[2026-02-19 23:33:10,031] 75 root - INFO - Cleaning data: Converting data types and standardizing SKU format
+[2026-02-19 23:33:10,207] 89 root - INFO - Appending datasets to create master_sales
+[2026-02-19 23:33:10,213] 93 root - INFO - Removing duplicates from master_sales
+[2026-02-19 23:33:10,266] 97 root - INFO - Saving master_sales to path: DATA/master_sales.csv
+[2026-02-19 23:33:10,665] 110 root - INFO - Loading master_sales from path: DATA/master_sales.csv
+[2026-02-19 23:33:10,742] 113 root - INFO - Cleaning master_sales: Handling missing values and extracting date components
+[2026-02-19 23:33:10,788] 125 root - INFO - Extracting year, month, and day from order_date
+[2026-02-19 23:33:11,260] 141 root - INFO - Saving cleaned master_sales to path: DATA/cleaned_master_sales.csv
+[2026-02-19 23:33:11,588] 154 root - INFO - ETL Process Completed Successfully
+[2026-02-19 23:33:11,588] 19 root - INFO - Matrix Config Initialized with paths: Cleaned Data - DATA/cleaned_master_sales.csv, Matrix Output - DATA/correlation_matrix.png
+[2026-02-19 23:33:11,589] 30 root - INFO - Loading cleaned data from path: DATA/cleaned_master_sales.csv
+[2026-02-19 23:33:11,673] 33 root - INFO - Generating correlation matrix
+[2026-02-19 23:33:11,699] 66 root - ERROR - Error in generating correlation matrix: Cannot save file into a non-existent directory: 'KPI'
