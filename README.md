@@ -41,38 +41,39 @@ This project is designed to analyze sales and product performance to answer ques
 
 ---
 
-## Repository Structure (Current)
+## 📁 Repository Structure
+
+```
 
 E-Commerce-Sales-Intelligence-Dashboard/
 │
-├── DATA/                           # All datasets
+├── DATA/                         # All datasets
 │   ├── Amazon Sale Report.csv
 │   ├── International Sale Report.csv
 │   ├── master_sales.csv
 │   ├── cleaned_master_sales.csv
 │   └── kpi_summary.csv
 │
-├── src/                            # Python source code
-│   ├── etl.py                     # ETL pipeline (merge + clean)
+├── src/                          # Python source code
+│   ├── etl.py                    # ETL pipeline (merge + clean)
 │   ├── load_products.py          # Load product metadata to MySQL
 │   ├── logger.py
 │   └── exception.py
 │
-├── sql/                           # SQL scripts
+├── sql/                          # SQL scripts
 │   └── analysis_queries.sql      # All SQL queries (KPIs + joins)
 │
-├── analysis/                      # Jupyter notebooks
+├── analysis/                     # Jupyter notebooks
 │   └── eda.ipynb
 │
-├── reports/                       # Outputs
+├── reports/                      # Outputs
 │   └── images/                   # Dashboard screenshots / charts
 │
 ├── README.md                     # Project documentation
-│
 ├── requirements.txt              # Python dependencies
-│
 └── .gitignore
 
+```
 ---
 
 ## Data
