@@ -50,13 +50,13 @@ E-Commerce-Sales-Intelligence-Dashboard/
 ├── DATA/                         # All datasets
 │   ├── Amazon Sale Report.csv
 │   ├── International Sale Report.csv
-│   ├── master_sales.csv
-│   ├── cleaned_master_sales.csv
-│   └── kpi_summary.csv
+│   
+│   
+│   
 │
-├── src/                          # Python source code
+├── script/                          # Python source code
 │   ├── etl.py                    # ETL pipeline (merge + clean)
-│   ├── load_products.py          # Load product metadata to MySQL
+│   ├── matrix.py          # make all KPI for this project
 │   ├── logger.py
 │   └── exception.py
 │
@@ -66,8 +66,9 @@ E-Commerce-Sales-Intelligence-Dashboard/
 ├── analysis/                     # Jupyter notebooks
 │   └── eda.ipynb
 │
-├── reports/                      # Outputs
-│   └── images/                   # Dashboard screenshots / charts
+├── KPI/                      # Outputs
+│   |── Results and images/                   # Dashboard screenshots / charts
+|   
 │
 ├── README.md                     # Project documentation
 ├── requirements.txt              # Python dependencies
