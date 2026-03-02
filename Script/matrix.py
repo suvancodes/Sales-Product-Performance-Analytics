@@ -29,12 +29,15 @@ class Matrix:
 
     def generate_correlation_matrix(self):
         try:
+            
             os.makedirs("KPI", exist_ok=True)
             
             logging.info("Loading cleaned data from path: {0}".format(self.config.cleaned_data_path))
             df = pd.read_csv(self.config.cleaned_data_path)
 
             logging.info("Generating correlation matrix")
+            print('Generating correlation matrix')
+            
             total_revenue = int(df['revenue'].sum())
             print(f"total revenue: {total_revenue}")
 
@@ -72,9 +75,13 @@ class Matrix:
             
             # monthly data analysis
             logging.info("Generating monthly analysis")
+            print('Generating monthly analysis........')
+            
             
             os.makedirs("KPI/Monthly_Analysis", exist_ok=True)
             logging.info("Saving monthly analysis plots to KPI/Monthly_Analysis/")
+            
+            print('Saving monthly analysis plots to KPI/Monthly_Analysis/')
             
             
             plt.figure(figsize=(16,12))
@@ -105,19 +112,18 @@ class Matrix:
             plt.tight_layout()
             
 
-
-
             # Revenue Trend Line
             plt.subplot(2, 2, 4)
             monthly_revenue.plot(kind='line', title='Revenue Trend Over Months')
             plt.xlabel('Month')
             plt.ylabel('Revenue')
             plt.savefig("KPI/Monthly_Analysis/revenue_trend.png")
+            
+            print('saving revenue_trend is completed ✅')
             plt.tight_layout()
             
-            logging.info("Correlation matrix generation completed successfully")
-            
             logging.info("Creating directory for Product Analytics at KPI/Product Analytics")
+            print('Creating directory for Product Analytics at KPI/Product Analytics........')
             os.makedirs('KPI/Product Analytics', exist_ok=True)
             
             # top 10 SKUs by Revenue
@@ -166,9 +172,11 @@ class Matrix:
             plt.tight_layout()
             
             plt.savefig('KPI/Product Analytics/product_analytics.jpg')
+            print('saving product_analytics is completed ✅')
 
             
             os.makedirs("KPI/Geographic_Analysis", exist_ok=True)
+            print('Saving geographic analysis plots to KPI/Geographic_Analysis/ ........')
             logging.info("Saving geographic analysis plots to KPI/Geographic_Analysis/")
             
             # Revenue by Country
@@ -205,10 +213,13 @@ class Matrix:
             plt.tight_layout()
             
             plt.savefig('KPI/Geographic_Analysis/geographic_analysis.jpg')
+            print('saving geographic_analysis is completed ✅')
+            
             
             # Advanced Analytical Features
             os.makedirs("KPI/Advanced_Analytical_Features", exist_ok=True)
             logging.info("Saving advanced analytical features plots to KPI/Advanced_Analytical_Features/")
+            print('Saving advanced analytical features plots to KPI/Advanced_Analytical_Features/ ......')
             
             # Revenue per Day of Week
             df['order_date'] = pd.to_datetime(df['order_date'], errors='coerce')
@@ -221,6 +232,7 @@ class Matrix:
             plt.ylabel('Revenue')
             plt.tight_layout()
             plt.savefig("KPI/Advanced_Analytical_Features/revenue_by_day_of_week.png")
+            print('saving revenue_by_day_of_week is completed ✅')
 
 
             # Rolling 7-Day Revenue
@@ -234,6 +246,7 @@ class Matrix:
             plt.ylabel('Rolling 7-Day Average Revenue')
             plt.tight_layout()
             plt.savefig("KPI/Advanced_Analytical_Features/rolling_7_day_revenue.png")
+            print('saving rolling_7_day_revenue is completed ✅')
 
             # Revenue Distribution
 
@@ -247,6 +260,7 @@ class Matrix:
             plt.ylabel('Revenue')
             plt.tight_layout()
             plt.savefig("KPI/Advanced_Analytical_Features/revenue_distribution.png")
+            print('saving revenue_distribution is completed ✅')
 
             # Top 20% SKUs Contribution
 
@@ -255,6 +269,8 @@ class Matrix:
             top_20_percent_skus = cumulative_revenue_percentage[cumulative_revenue_percentage <= 0.2].index
             pd.Series(top_20_percent_skus).to_csv("KPI/Advanced_Analytical_Features/top_20_percent_skus.csv", index=False)
             
+            
+            print('generate_correlation_matrix is completed ✅')
 
 
 

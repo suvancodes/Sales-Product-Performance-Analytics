@@ -3,6 +3,7 @@ from exception import CustomException
 from logger import logging
 import sys
 from matrix import Matrix,MatrixConfig
+from loder_sql import DataLoader_SQL
 
 logging.info("ETL Process Started")
 print("ETL Process Started")
@@ -155,6 +156,10 @@ if __name__ == "__main__":
         print("ETL Process Completed Successfully")
         matrix = Matrix()
         matrix.generate_correlation_matrix()
+        data_obj = DataLoader_SQL()
+        data_obj.load_data()
+        
+        
     except Exception as e:
         logging.error("ETL Process Failed with error: {0}".format(str(e)))
         print("ETL Process Failed with error:", str(e))

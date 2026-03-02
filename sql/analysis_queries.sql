@@ -1,4 +1,4 @@
--- Active: 1770901343716@@127.0.0.1@3306@mysql
+-- Active: 1771784571765@@127.0.0.1@3306@ecommerce_analytics
 
 GRANT ALL PRIVILEGES ON ecommerce_analytics.* TO 'root'@'localhost';
 FLUSH PRIVILEGES;
@@ -29,13 +29,13 @@ SELECT
 FROM master_sales
 GROUP BY source;
 
-CREATE TABLE products (
-    sku VARCHAR(50),
-    category VARCHAR(100),
-    size VARCHAR(20),
-    color VARCHAR(20)
-);
-
+CREATE TABLE products AS
+SELECT DISTINCT
+    sku,
+    'General' AS category,
+    'NA' AS size,
+    'NA' AS color
+FROM master_sales;
 
 SELECT
     m.sku,
@@ -45,8 +45,12 @@ FROM master_sales m
 JOIN products p
 ON m.sku = p.sku
 GROUP BY m.sku, p.category
-ORDER BY total_revenue DESC;
+ORDER BY total_revenue DESC
+LIMIT 10;
+DROP TABLE products;
 
 
-SELECT * FROM products;
-SELECT COUNT(*) FROM products;
+
+SELECT COUNT(*) AS total_rows FROM master_sales;
+
+DROP Table master_sales;
