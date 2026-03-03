@@ -16,6 +16,7 @@ FROM master_sales
 GROUP BY MONTH(order_date)
 ORDER BY month;
 
+-- country wise revenue
 SELECT
     country,
     SUM(revenue) AS total_revenue
@@ -29,7 +30,7 @@ SELECT
 FROM master_sales
 GROUP BY source;
 
-CREATE TABLE products AS
+CREATE TABLE IF NOT EXISTS products AS
 SELECT DISTINCT
     sku,
     'General' AS category,
@@ -53,4 +54,3 @@ DROP TABLE products;
 
 SELECT COUNT(*) AS total_rows FROM master_sales;
 
-DROP Table master_sales;

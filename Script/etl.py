@@ -122,7 +122,7 @@ class ETL:
             master_sales['order_date'] = master_sales['order_date'].fillna(master_sales['order_date'].mode()[0])
             master_sales['quantity'] = master_sales['quantity'].fillna(master_sales['quantity'].mode()[0])
             master_sales['revenue'] = master_sales['revenue'].fillna(master_sales['revenue'].mean())
-                
+            master_sales['country'] = master_sales['country'].fillna(master_sales['country'].mode()[0])
             logging.info("Extracting year, month, and day from order_date")
                 
             master_sales['order_date'] = master_sales['order_date'].astype(str)
